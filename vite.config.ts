@@ -7,6 +7,9 @@ import react from "@vitejs/plugin-react";
 const viteConfig: UserConfig = defineConfig({
 	base: "/redux-devtools-experiment/",
 	plugins: [react()],
+	build: {
+		minify: false,
+	},
 	test: {
 		projects: [
 			{
