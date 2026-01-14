@@ -2,7 +2,7 @@
   "name": "redux-devtools-experiment",
   "type": "module",
   "version": "1.0.0",
-  "description": "Barebones starter for a preact project",
+  "description": "Experiments with redux devtools",
   "main": "dist/index.js",
   "scripts": {
     "build": "vite build",
@@ -18,12 +18,15 @@
   "author": "Andre Wiggins",
   "license": "MIT",
   "dependencies": {
-    "preact": "^10.22.1"
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.10.2",
     "@types/babel__core": "^7.20.5",
     "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
     "@vitest/coverage-v8": "^4.0.13",
     "happy-dom": "^20.0.10",
     "prettier": "^3.6.2",
@@ -34,9 +37,6 @@
   "pnpm": {
     "overrides": {
       "@types/node": "24.10.1"
-    },
-    "patchedDependencies": {
-      "@preact/preset-vite": "patches/@preact__preset-vite.patch"
     }
   },
   "volta": {

@@ -1,4 +1,3 @@
-# Preact Starter
+# Redux Devtools Experiments
 
-Simple project to get started using [Preact](https://preactjs.com) &
-[vite](https://vitejs.dev).
+Experiments with redux devtools

@@ -1,12 +1,12 @@
 /// <reference types="vitest/config" />
 import type { UserConfig } from "vite";
 import { defineConfig } from "vite";
-import preact from "@preact/preset-vite";
+import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 const viteConfig: UserConfig = defineConfig({
 	base: "/redux-devtools-experiment/",
-	plugins: [preact()],
+	plugins: [react()],
 	test: {
 		projects: [
 			{
