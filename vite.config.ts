@@ -5,7 +5,7 @@ import preact from "@preact/preset-vite";
 
 // https://vitejs.dev/config/
 const viteConfig: UserConfig = defineConfig({
-	base: "/preact-starter/",
+	base: "/redux-devtools-experiment/",
 	plugins: [preact()],
 	test: {
 		projects: [
