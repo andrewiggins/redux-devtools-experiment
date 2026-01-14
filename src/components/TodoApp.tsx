@@ -10,14 +10,14 @@ export function TodoApp(): JSX.Element {
 	const hasTodos = todos.length > 0;
 
 	return (
-		<div className="todoapp">
+		<>
 			<TodoHeader />
 			{hasTodos && (
-				<>
+				<main className="main">
 					<TodoList />
 					<TodoFooter />
-				</>
+				</main>
 			)}
-		</div>
+		</>
 	);
 }

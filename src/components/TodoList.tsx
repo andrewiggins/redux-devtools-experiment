@@ -17,20 +17,24 @@ export function TodoList(): JSX.Element {
 	};
 
 	return (
-		<section className="main">
-			<input
-				id="toggle-all"
-				className="toggle-all"
-				type="checkbox"
-				checked={allCompleted}
-				onChange={handleToggleAll}
-			/>
-			<label htmlFor="toggle-all">Mark all as complete</label>
+		<>
+			<div className="toggle-all-container">
+				<input
+					id="toggle-all"
+					className="toggle-all"
+					type="checkbox"
+					checked={allCompleted}
+					onChange={handleToggleAll}
+				/>
+				<label className="toggle-all-label" htmlFor="toggle-all">
+					Toggle All Input
+				</label>
+			</div>
 			<ul className="todo-list">
 				{filteredTodos.map((todo) => (
 					<TodoItem key={todo.id} todo={todo} />
 				))}
 			</ul>
-		</section>
+		</>
 	);
 }

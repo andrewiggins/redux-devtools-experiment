@@ -106,7 +106,7 @@ describe("TodoApp", () => {
 		await user.type(input, "Todo 2{Enter}");
 		await user.type(input, "Todo 3{Enter}");
 
-		const toggleAllCheckbox = screen.getByLabelText("Mark all as complete");
+		const toggleAllCheckbox = screen.getByLabelText("Toggle All Input");
 		await user.click(toggleAllCheckbox);
 
 		await waitFor(() => {
