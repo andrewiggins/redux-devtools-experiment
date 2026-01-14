@@ -27,6 +27,61 @@ This is an experimental project for testing Redux DevTools integration with Reac
 - `pnpm format` - Format code with Prettier
 - `pnpm check-format` - Check formatting without modifying files
 
+## Application Structure
+
+This is a TodoMVC application built with React 19 and Redux Toolkit.
+
+### HTML Structure (TodoMVC Spec)
+
+The app follows the TodoMVC HTML specification. The root element in `index.html` is:
+
+```html
+<section class="todoapp" id="root"></section>
+```
+
+Components render directly into this section without adding another wrapper. The structure is:
+
+- `section.todoapp` (in index.html)
+  - `header.header` (TodoHeader)
+  - `main.main` (wraps list and footer, rendered by TodoApp)
+    - `div.toggle-all-container` (TodoList)
+    - `ul.todo-list` (TodoList)
+    - `footer.footer` (TodoFooter)
+
+### Redux Store
+
+- **Store**: `src/store/store.ts` - configureStore with `devTools: true` for ALL builds (production included)
+- **Slice**: `src/store/todosSlice.ts` - all actions, reducers, and selectors
+- **Hooks**: `src/store/hooks.ts` - typed `useAppDispatch` and `useAppSelector`
+
+Redux DevTools only activates when the browser extension is installed, so there's no performance penalty in production for users without it.
+
+### TypeScript with isolatedDeclarations
+
+Due to `isolatedDeclarations: true`, Redux slices require explicit type annotations. The slice uses a factory function pattern:
+
+```typescript
+interface TodoCaseReducers extends StaticCaseReducers<TodosState> { ... }
+interface TodoSelectors extends SliceSelectors<TodosState> { ... }
+type TodoSlice = Slice<TodosState, TodoCaseReducers, "todos", "todos", TodoSelectors>;
+
+function createTodoSlice(): TodoSlice {
+  return createSlice({ ... });
+}
+```
+
+Reducers use inline object function syntax (not arrow functions) to simplify return type inference:
+
+```typescript
+reducers: {
+  addTodo(state, action): void { ... },  // NOT: addTodo: (state, action) => { ... }
+}
+```
+
+### localStorage Persistence
+
+State is automatically persisted to localStorage via store subscription in `src/store/store.ts`. The `src/utils/storage.ts` module handles serialization with error handling.
+
 ## Architecture
 
 ### TypeScript Project References
