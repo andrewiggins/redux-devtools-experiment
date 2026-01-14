@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"types": [],
+		"moduleResolution": "bundler",
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact",
+		"strict": true,
+		"resolveJsonModule": true,
+		"outDir": "build",
+		"esModuleInterop": true,
+		"declaration": true,
+		"isolatedDeclarations": true,
+		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
+		"erasableSyntaxOnly": true,
+		"allowImportingTsExtensions": true,
+		"forceConsistentCasingInFileNames": true,
+		"composite": true,
+		"emitDeclarationOnly": true
+	},
+	"references": [
+		{ "path": "./src/tsconfig.json" },
+		{ "path": "./scripts/tsconfig.json" },
+		{ "path": "./test/tsconfig.json" }
+	],
+	"exclude": ["build", "node_modules"]
+}
