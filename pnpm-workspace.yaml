@@ -12,4 +12,6 @@ minimumReleaseAgeExclude: []
 trustPolicy: no-downgrade
 # Ignore trustPolicy for these explicitly listed packages.
 # Try to keep this list temporary, aim to whittle down the number of exclusions over time.
-trustPolicyExclude: []
+trustPolicyExclude:
+  - react-redux # Trust downgrade in 9.2.0 - provenance attestation missing
+  - reselect # Trust downgrade in 5.1.1 - provenance attestation missing

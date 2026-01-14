@@ -17,6 +17,7 @@ const viteConfig: UserConfig = defineConfig({
 					name: "happy-dom",
 					root: "./test",
 					environment: "happy-dom",
+					setupFiles: ["./setup.ts"],
 				},
 			},
 		],

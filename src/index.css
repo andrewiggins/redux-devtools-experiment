@@ -1,3 +1,6 @@
+@import "todomvc-app-css/index.css";
+
 body {
-	text-align: center;
+	margin: 0;
+	padding: 0;
 }
