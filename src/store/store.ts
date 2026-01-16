@@ -8,6 +8,9 @@ export interface RootState {
 	todos: TodosState;
 }
 
+const params = new URLSearchParams(location.search);
+const hasTraceParam = params.has("trace") && params.get("trace") !== "false";
+
 const preloadedState: RootState | undefined = loadState();
 
 export const store: EnhancedStore<RootState> = configureStore({
@@ -15,7 +18,7 @@ export const store: EnhancedStore<RootState> = configureStore({
 		todos: todosReducer,
 	},
 	preloadedState,
-	devTools: true, // ENABLED IN ALL BUILDS (including production)
+	devTools: hasTraceParam ? { trace: true } : true, // ENABLED IN ALL BUILDS (including production)
 });
 
 // Subscribe to store changes for localStorage persistence
